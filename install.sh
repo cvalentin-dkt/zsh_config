@@ -4,7 +4,7 @@
 rm -Rf ~/.oh-my-zsh/ ~/.zgen/ ~/.zshrc
 
 sudo apt update
-sudo apt install -y tmux zsh git software-properties-common grc
+sudo apt install -y tmux zsh git software-properties-common grc wget curl
 #sudo add-apt-repository ppa:fontforge/fontforge
 #sudo apt-get update
 #sudo apt-get install -y fontforge
@@ -27,16 +27,16 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 cd
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
+/bin/cp -Rf .tmux/.tmux.conf.local .
 cd -
 
 # COPY MY CONFIG
-cp .zshrc ~/
-cp .tmux.conf ~/
-cp .tmux.local.conf ~/
+/bin/cp -Rf .zshrc ~/
+/bin/cp -Rf .tmux.conf ~/
+/bin/cp -Rf .tmux.local.conf ~/
 mkdir -p ~/.zshrc_profiles
 
 # DEFAULT BASH
-sudo usermod --shell /usr/bin/zsh $USER
+#sudo usermod --shell /usr/bin/zsh $USER
 
 zsh
